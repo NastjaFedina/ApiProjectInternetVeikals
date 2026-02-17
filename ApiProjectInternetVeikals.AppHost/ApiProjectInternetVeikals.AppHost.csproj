@@ -1,0 +1,34 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.1.0">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>e2640cad-24be-43eb-b8d9-77f3a25936e3</UserSecretsId>
+  </PropertyGroup>
+
+  <!-- RunCommand tells the IDE/tooling how to start the actual server when running the AppHost project. -->
+  <PropertyGroup>
+    <!-- Use MSBuild project directory to form an absolute path so tooling can find the server reliably on any OS. -->
+    <RunCommand>dotnet run --project "$(MSBuildProjectDirectory)/../ApiProjectInternetVeikals.Server/ApiProjectInternetVeikals.Server.csproj" --no-launch-profile</RunCommand>
+    <RunWorkingDirectory>$(MSBuildProjectDirectory)/../ApiProjectInternetVeikals.Server</RunWorkingDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ProjectReference to server removed to avoid circular dependency. Server now references AppHost. -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
+  </ItemGroup>
+</Project>
