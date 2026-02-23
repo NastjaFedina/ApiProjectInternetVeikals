@@ -17,10 +17,10 @@ Order (norāda lietotāja veiktu pasūtījumu),
 OrderItem (Saista produktu ar pasūtījumu).
 
 *Foreign Keys:
-Product.CategoryId - Category
-Order.UserId - User
-OrderItem.OrderId - Order
-OrderItem.ProductId - Product
+Product.CategoryId - Category;
+Order.UserId - User;
+OrderItem.OrderId - Order;
+OrderItem.ProductId - Product;
 
 *GET, POST metodes:
 GET (atgriež visu produktu sarakstu no tabulas Products, atgriež pasūtījumu sarakstu, ielādē saistītos datus (User, OrderItems), ...)
